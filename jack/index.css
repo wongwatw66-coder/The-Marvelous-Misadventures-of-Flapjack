@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    background-color: #333;
+    color: #333;
+    padding: 10px 0;
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content {
+    background-color: #eae4e4;
+    padding: 1rem 0;
+}
+
+.maincontent-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.maincontent-info {
+    width: 60%;
+    padding: 2rem;
+
+    h3 {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 2rem 0;
+        text-align: justify;
+        text-indent: 2rem;
+    }
+}
+
+.maincontent-info .maincontent-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: #c1c1c1;
+        color: #333;
+        transform: scale(1.1);
+        animation-delay: 0.5s;
+    }
+}
+
+.maincontent-image {
+    height: 350px;
+    width: 40%;
+
+    img {
+        width: 30%;
+        height: 50%;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+}
+.content-con{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 1.5rem;
+    text-align: center;
+}
+.content-title{
+    margin: 2rem 0;
+    color: rgb(192, 203, 212);
+    background-color: #333;
+
+}
+
+
+.content-item img{
+    width: 220px;
+    height: 300px;
+
+}
+.content-item h4{
+    margin-top: 1rem;
+}
+.content-item p{
+    margin: 1rem;
+}
+
+.content-btn{
+    padding: 0.75rem  0.5rem;
+    background-color: rgb(223, 154, 154);
+    border-radius: 0.5rem;
+}
+.author {
+    background-color: #f4f4f4;
+    padding: 3rem 0;
+    margin-top: 5rem;
+}
+
+.author-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.author-con {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.author-img {
+    width: 35%;
+    text-align: center;
+}
+
+.author-img img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.author-info {
+    width: 65%;
+}
+
+.author-info h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.author-info p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: justify;
+    text-indent: 2rem;
+}
+/* ส่วนท้าย footer */
+/* Footer Top */
+.Footer-top {
+    background-color: #1e1e1e;
+    color: #1e1e1e;
+    padding: 3rem 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-top-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid #1e1e1e;
+    padding-left: 1rem;
+    color: #1e1e1e;
+}
+
+/* รายการกิจกรรม */
+.footer-top-itrm-con {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #2a2a2a;
+    padding: 1.2rem;
+    border-radius: 12px;
+}
+
+/* วันที่ */
+.footer-top-itrm-con .date {
+    min-width: 60px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    line-height: 1.2;
+}
+
+/* กล่องข้อมูล */
+.footer-top-itrm-con .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* หัวข้อ */
+.info-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* คำอธิบาย */
+.info-descrip {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* รีเซ็ตพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* container */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+/* หัวข้อ */
+.footer-top-item h4 {
+    color: #1e1e1e;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* grid 5 ช่อง */
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+/* การ์ดสินค้า */
+.product-card {
+    background-color: #2a2a2a;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* รูปสินค้า */
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* กล่องข้อมูล */
+.product-info {
+    padding: 0.9rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ชื่อสินค้า */
+.product-title {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ราคา */
+.product-price {
+    color: #ffcc00;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .footer-top-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================
+   TABLE STYLES
+================================*/
+h2 {
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: 600;
+}
+
+td {
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+table button {
+    padding: 6px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+table button:hover {
+    background-color: #555;
+}
+
+#cart-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 2px solid #333;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+#cart-box h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+input[type="number"] {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.checkout-btn {
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background: #218838;
+}
+
+.product-buy-btn {
+    width: 100%;
+    padding: 8px 0;
+    background-color: rgb(223, 154, 154);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.product-buy-btn:hover {
+    background-color: rgb(200, 120, 120);
+    transform: scale(1.02);
+}
+
+/* ===============================
+   PRODUCT GRID : จอใหญ่พิเศษ
+================================*/
+@media (min-width: 1400px) {
+
+    /* ขยาย container เฉพาะสินค้าแนะนำ */
+    .footer-top .container {
+        max-width: 1600px;
+    }
+
+    /* เพิ่มช่องไฟระหว่างการ์ด */
+    .footer-top-grid {
+        gap: 2.2rem;
+    }
+
+    /* การ์ดใหญ่ขึ้น */
+    .product-card {
+        border-radius: 20px;
+    }
+
+    /* รูปสินค้าใหญ่ขึ้น */
+    .product-card img {
+        height: 240px;
+    }
+
+    /* กล่องข้อมูล */
+    .product-info {
+        padding: 1.2rem 1.4rem;
+    }
+
+    /* ชื่อสินค้า */
+    .product-title {
+        font-size: 1.05rem;
+    }
+
+    /* ราคา */
+    .product-price {
+        font-size: 1.15rem;
+    }
+
+    /* หัวข้อ */
+    .footer-top-item h4 {
+        font-size: 1.8rem;
+    }
+}
+.about {
+    padding: 60px 0;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+html{
+    scroll-behavior: smooth;
+}

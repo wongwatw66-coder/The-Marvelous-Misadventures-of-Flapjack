@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>สินค้า</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <script>
+        let cart = [];
+
+        function orderProduct(button, name, price) {
+            const row = button.parentElement.parentElement;
+            const stockCell = row.children[3];
+            let stock = parseInt(stockCell.innerText);
+
+            if (stock <= 0) {
+                alert("สินค้าหมด!");
+                return;
+            }
+
+            stock--;
+            stockCell.innerText = stock;
+
+            let existing = cart.find(item => item.name === name);
+
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+
+            updateCart();
+        }
+
+        function findProductRow(name) {
+            const rows = document.querySelectorAll("tbody.product-list tr");
+            for (let row of rows) {
+                if (row.children[1].innerText === name) {
+                    return row;
+                }
+            }
+        }
+
+        function changeQty(name, newQty) {
+            const item = cart.find(i => i.name === name);
+            if (!item) return;
+
+            const row = findProductRow(name);
+            const stockCell = row.children[3];
+            let stock = parseInt(stockCell.innerText);
+
+            newQty = parseInt(newQty);
+
+            if (isNaN(newQty) || newQty < 0) {
+                updateCart();
+                return;
+            }
+
+            let diff = newQty - item.qty;
+
+            // ถ้าเพิ่มจำนวน
+            if (diff > 0) {
+                if (diff > stock) {
+                    alert("Stock ไม่พอ!");
+                    updateCart();
+                    return;
+                }
+                stockCell.innerText = stock - diff;
+            }
+
+            // ถ้าลดจำนวน
+            if (diff < 0) {
+                stockCell.innerText = stock + Math.abs(diff);
+            }
+
+            if (newQty === 0) {
+                cart = cart.filter(i => i.name !== name);
+            } else {
+                item.qty = newQty;
+            }
+
+            updateCart();
+        }
+        function removeItem(name) {
+            const item = cart.find(i => i.name === name);
+            if (!item) return;
+
+            const row = findProductRow(name);
+            const stockCell = row.children[3];
+
+            stockCell.innerText = parseInt(stockCell.innerText) + item.qty;
+
+            cart = cart.filter(i => i.name !== name);
+            updateCart();
+        }
+
+        function updateCart() {
+            const body = document.getElementById("cart-body");
+            const totalEl = document.getElementById("total-price");
+            body.innerHTML = "";
+
+            let total = 0;
+
+            cart.forEach(item => {
+                let subtotal = item.price * item.qty;
+                total += subtotal;
+
+                body.innerHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>${item.price.toLocaleString()}</td>
+            <td>
+                <input type="number"
+                       min="0"
+                       value="${item.qty}"
+                       style="width:60px"
+                       onchange="changeQty('${item.name}', this.value)">
+            </td>
+            <td>${subtotal.toLocaleString()}</td>
+            <td><button onclick="removeItem('${item.name}')">ลบ</button></td>
+        </tr>
+        `;
+            });
+
+            totalEl.innerText = total.toLocaleString();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("ไม่มีสินค้าในตะกร้า");
+                return;
+            }
+
+            alert("สั่งซื้อสำเร็จ! ยอดรวม " +
+                document.getElementById("total-price").innerText + " บาท");
+
+            cart = [];
+            updateCart();
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>สินค้า</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>เลข</th>
+                <th>ชื่อสินค้า</th>
+                <th>ราคา</th>
+                <th>Stock</th>
+                <th>สั่งซื้อ</th>
+            </tr>
+        </thead>
+
+        <tbody class="product-list">
+            <tr>
+                <td>1</td>
+                <td>Flapjack Figure</td>
+                <td>1,290</td>
+                <td>12</td>
+                <td><button onclick="orderProduct(this,'Flapjack Figure',1290)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Captain K’nuckles Doll</td>
+                <td>990</td>
+                <td>8</td>
+                <td><button onclick="orderProduct(this,'Captain K’nuckles Doll',990)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Bubbie Plush</td>
+                <td>850</td>
+                <td>5</td>
+                <td><button onclick="orderProduct(this,'Bubbie Plush',850)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Flapjack Poster</td>
+                <td>450</td>
+                <td>20</td>
+                <td><button onclick="orderProduct(this,'Flapjack Poster',450)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Flapjack T-Shirt</td>
+                <td>790</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'Flapjack T-Shirt',790)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Sticker</td>
+                <td>250</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'Sticker',250)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>book 1</td>
+                <td>499</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'book 1',499)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>book 2</td>
+                <td>499</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'book 2',499)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>book 3</td>
+                <td>499</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'book 3',499)">สั่งซื้อ</button></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>book 4</td>
+                <td>499</td>
+                <td>10</td>
+                <td><button onclick="orderProduct(this,'book 4',499)">สั่งซื้อ</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="cart-box">
+        <h3>🛒 ตะกร้าสินค้า</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>สินค้า</th>
+                    <th>ราคา</th>
+                    <th>จำนวน</th>
+                    <th>รวม</th>
+                    <th>จัดการ</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body"></tbody>
+        </table>
+
+        <h3>ราคารวมทั้งหมด: <span id="total-price">0</span> บาท</h3>
+
+        <button class="checkout-btn" onclick="checkout()">สั่งซื้อทั้งหมด</button>
+
+    </div>
+
+</body>
+
+</html>

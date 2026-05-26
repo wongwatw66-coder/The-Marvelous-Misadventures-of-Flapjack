@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event Example</title>
+</head>
+<body>
+
+    <!-- ปุ่มเดิม -->
+    <button id="bt">Button</button>
+    <br><br>
+
+    <!-- รูปภาพ -->
+    <img id="imgClick" 
+         src="Toy.jpg" 
+         alt="image"
+         style="cursor:pointer;">
+    <br><br>
+
+    <!-- Textbox -->
+    <input type="text" id="txtBox" placeholder="คลิกที่ Textbox">
+
+    <script>
+        // ปุ่ม
+        let btn = document.getElementById('bt');
+        btn.onclick = function () {
+            alert('มีการกดปุ่ม');
+        }
+
+        // รูปภาพ
+        let img = document.getElementById('imgClick');
+        img.onclick = function () {
+            alert('มีการคลิกภาพ');
+        }
+
+        // Textbox
+        let txt = document.getElementById('txtBox');
+        txt.onclick = function () {
+            alert('มีการคลิก Textbox');
+        }
+    </script>
+
+</body>
+</html>
