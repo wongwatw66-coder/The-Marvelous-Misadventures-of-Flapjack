@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="index.css">
 
     <script>
+        // โปรแกรม JavaScript ส่วนตะกร้าสินค้า
+        // เก็บรายการสินค้าที่ผู้ใช้สั่งซื้อ (ชื่อ, ราคา, จำนวน)
         let cart = [];
 
+        // กดปุ่ม "สั่งซื้อ" ที่ตารางสินค้า — ลด stock และเพิ่มลงตะกร้า
         function orderProduct(button, name, price) {
             const row = button.parentElement.parentElement;
             const stockCell = row.children[3];
@@ -34,6 +37,7 @@
             updateCart();
         }
 
+        // หาแถวสินค้าในตารางจากชื่อสินค้า (ใช้ปรับ stock ตอนแก้จำนวน/ลบ)
         function findProductRow(name) {
             const rows = document.querySelectorAll("tbody.product-list tr");
             for (let row of rows) {
@@ -43,6 +47,7 @@
             }
         }
 
+        // แก้จำนวนในตะกร้า (input number) — อัปเดต stock ตามจำนวนที่เพิ่ม/ลด
         function changeQty(name, newQty) {
             const item = cart.find(i => i.name === name);
             if (!item) return;
@@ -70,7 +75,7 @@
                 stockCell.innerText = stock - diff;
             }
 
-            // ถ้าลดจำนวน
+            // ถ้าลดจำนวน — คืน stock กลับไปที่ตารางสินค้า
             if (diff < 0) {
                 stockCell.innerText = stock + Math.abs(diff);
             }
@@ -83,6 +88,8 @@
 
             updateCart();
         }
+
+        // ลบรายการออกจากตะกร้า และคืน stock ทั้งหมดของรายการนั้น
         function removeItem(name) {
             const item = cart.find(i => i.name === name);
             if (!item) return;
@@ -96,6 +103,7 @@
             updateCart();
         }
 
+        // วาดตารางตะกร้าใหม่ และคำนวณราคารวม
         function updateCart() {
             const body = document.getElementById("cart-body");
             const totalEl = document.getElementById("total-price");
@@ -127,6 +135,7 @@
             totalEl.innerText = total.toLocaleString();
         }
 
+        // กดปุ่ม "สั่งซื้อทั้งหมด" — แจ้งยอดรวมแล้วล้างตะกร้า
         function checkout() {
             if (cart.length === 0) {
                 alert("ไม่มีสินค้าในตะกร้า");
